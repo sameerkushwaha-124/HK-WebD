@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+// --------------------------------------------------------------------------------------------------------
+
+      function findSum() {
+        const a = document.getElementById("box1").value;
+        const b = document.getElementById("box2").value;
+        fetch(`http://localhost:5000/output/?a=${a}&b=${b}`)
+        .then(function (response) {
+          const textData = response.text();
+          textData.then(function (value) {
+              document.getElementById("output").innerHTML = value;
+            })
+            .catch(function (error) {
+              // Added error handling
+              document.getElementById("output").innerHTML = `Error: ${error.message}`;
+            });
+        });
+      }
+
+// --------------------------------------------------------------------------------------------------------
+
+      async function findSum2() {
+        const a = document.getElementById("box1").value;
+        const b = document.getElementById("box2").value;
+        const response = await fetch(`http://localhost:5000/output/?a=${a}&b=${b}`);
+        const value = await response.text();
+        if (value) {
+            document.getElementById("output").innerHTML = value;
+        }else{
+            document.getElementById("output").innerHTML = `Error: ${error.message}`;
+        }
+      }
+
+//-------------------------------------------------------------------------------------------------------------
+
+    let timeOut = null;
+    function debouncedPopulate(){
+        clearTimeout(timeout);
+        timeOut = setTimeout(function(){
+            findSum3();
+        }, 1000);
+    }
+    async function findSum3() {
+        // debouncing throtlling
+        const a = document.getElementById("box1").value;
+        const b = document.getElementById("box2").value;
+        const response = await fetch(`http://localhost:5000/output/?a=${a}&b=${b}`);
+        const value = await response.text();
+        if (value) {
+            document.getElementById("output").innerHTML = value;
+        }else{
+            document.getElementById("output").innerHTML = `Error: ${error.message}`;
+        }
+    }
+    </script>
+
+
+
+    <input onchange="debouncedPopulate()" type="Number" id="box1" />
+    <br>
+    <br>
+    <input onchange="debouncedPopulate()" type="Number" id="box2" />
+     <br>
+     <br> 
+    <!-- <button id="btn" onclick="findSum2()">Send Data</button> -->
+    <br>
+    <br>
+    <h1 style="display: inline-block">Output is:</h1>
+    <div style="display: inline-block; font-size:large" id="output"></div>
+  </body>
+</html>

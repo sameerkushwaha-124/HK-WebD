@@ -18,7 +18,7 @@ It’s built around a function called `getRecentPost2()` which fetches a post fr
 ```js
 function getRecentPost2() {
   const res1 = fetch("https://jsonplaceholder.typicode.com/posts/1");
-  console.log(res1); // Step 1: Promise<Response>
+  console.log(res1); // Step 1: Promise<Response> 
 
   res1.then(function(res2) {
     console.log(typeof res2); // "object" → Response object

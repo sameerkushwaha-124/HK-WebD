@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let id = 1;// the only purpose of this helper function is to for each submit we get new id for
+        function helper(){  
+            const title = document.getElementById("title").value;
+            const desc = document.getElementById("desc").value;
+
+            const mainParentDiv = document.getElementById('mainParentDiv');
+            mainParentDiv.appendChild(addTask(title, desc, id++));
+        }
+
+        function addTask(title, desc, id){
+
+            const subParent = document.createElement('div');
+
+            const firstGrandParent = document.createElement("div");
+            firstGrandParent.innerHTML = title;
+
+            const secondGrandParent = document.createElement('div');
+            secondGrandParent.innerHTML = desc;
+
+            const thirdGrandParent = document.createElement("button");
+            thirdGrandParent.innerHTML = "Mark As Done";
+            thirdGrandParent.setAttribute('onclick', `markAsDone(${id})`);
+
+            subParent.appendChild(firstGrandParent);
+            subParent.appendChild(secondGrandParent);
+            subParent.appendChild(thirdGrandParent);
+            subParent.setAttribute('id', id);
+
+            return subParent;
+        }
+
+        function markAsDone(id){
+            const subParent = document.getElementById(id);
+            subParent.children[2].innerHTML = 'Done';
+        }
+
+
+    </script>
+
+
+    <input type="text" id="title">
+    <br><br>
+    <input type="text" id="desc">
+    <br><br>
+    <button onclick="helper()">submit</button>
+    <hr>
+
+    <!-- jo ayega iske andar ayega -->
+    <div id="mainParentDiv">
+        
+    </div>
+</body>
+</html>
