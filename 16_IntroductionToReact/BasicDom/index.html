@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // we need to set value when ever the state changes.
+        let count = 0;
+        function incCount(){
+            count = count + 1;
+            document.getElementById('btn').innerHTML = `count is ${count}`
+            console.log("Hello");
+        }
+        
+    </script>
+
+    <button id="btn" onclick="incCount()">count is 0</button>
+</body>
+</html>
