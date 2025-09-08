@@ -58,21 +58,21 @@ app.post("/signin", (req, res) => {
     }
 
     if(foundUser){
-        const token = generateToken();   //yaha token k liye generateToken ko call kr diya
+        const token = generateToken();   // yaha token k liye generateToken ko call kr diya
         foundUser.token = token; // Assign the generated token to the foundUser object
         res.json({
             token: token
         })
     }
-    else{                                           //aur username ya password nhi found hoga toh invalid bta dega
+    else{                       //aur username ya password nhi found hoga toh invalid bta dega
         res.status(403).send({
             message:"Invalid username or password"
         })
     }    
 });
 
-app.get("/me", function(req,res){               //Created an authenticated EP which  returns the user their information only if they send their token
-    const token = req.headers.token              //Jo meta data mein hmlg kuch kuch cookies snd krte hai wahi header ke andar hoga woh token bhi jyega 
+app.get("/me", function(req,res){     // Created an authenticated EP which returns the user their information only if they send their token
+    const token = req.headers.token  // Jo meta data mein hmlg kuch kuch cookies send krte hai wahi header ke andar hoga woh token bhi jyega 
     let foundUser = null;
 
     // Searches the users array for a user whose token matches the token from the request header. If a match found, that user object is stored in foundUser

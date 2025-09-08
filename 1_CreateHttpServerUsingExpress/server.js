@@ -1,10 +1,10 @@
-// rest api, http 
+// rest api, http : we are creating an http server using express.
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
 // middleware
-app.use(bodyParser.json());
+app.use(bodyParser.json());  // bodyparser to parse json body comming from the frontend.
 
 // route
 app.get('/', function(req, res){

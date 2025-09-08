@@ -11,7 +11,7 @@ app.use(cors());
 
 // body - > title desc
 app.post("/todo", async function (req, res) {
-  const createPayload = req.body; // typeof req.body =  object if middlewared used to parse into json object. we do app.use(express.urlencoded()) for the form data.
+  const createPayload = req.body; // typeof req.body =>  object if middlewared used to parse into json object. we do app.use(express.urlencoded()) for the form data.
   const parsedPayload = createTodo.safeParse(createPayload);
   if (!parsedPayload) {
     res.status(411).json({

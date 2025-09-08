@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 
-//POST
+//POST: // if we want to make a post request using fetch("link", {method, body, headers})
 async function main(){
     const response = await fetch("LINK",
         {
@@ -20,7 +20,7 @@ async function main(){
 }
 
 
-// POST
+// POST : IN aXIOS : axios.post("link", {data}, {headers})
 async function main(){
     const response = await axios.post("LINK",{
         username:"ABC",

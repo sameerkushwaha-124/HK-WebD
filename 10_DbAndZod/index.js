@@ -13,12 +13,12 @@ app.use(express.json())                         //body ko parse krne k liye chah
 
 app.post("/signup", async function(req, res){
 
-    const requiredBody = z.object({             //idhar zod use kiye hai..jisse woh teen input lega jo ki teeno string hone chahiye 
-        email : z.string().min(3).max(100).email(),                     //zod ka schema yeh hai here we multiple input validation things..this one tell ki minimum 3 characters hone chahiye max 100 and a email should be there
+    const requiredBody = z.object({                 //idhar zod use kiye hai..jisse woh teen input lega jo ki teeno string hone chahiye 
+        email : z.string().min(3).max(100).email(), //zod ka schema yeh hai here we multiple input validation things..this one tell ki minimum 3 characters hone chahiye max 100 and a email should be there
         name : z.string().min(3).max(100),
         password : z.string().min(3).max(100)
     }) 
-    const parsedDataSuccess = requiredBody.safeParse(req.body);         //yeh data ko check kr rha ki input kiya hua data zod ke schema k accrding hai ya nahi
+    const parsedDataSuccess = requiredBody.safeParse(req.body);      //yeh data ko check kr rha ki input kiya hua data zod ke schema k accrding hai ya nahi
 
     if(!parsedDataSuccess.success){                     //If data is not correct then yeh response return kr do
         res.json({
@@ -71,9 +71,9 @@ app.post("/signin", async function(req, res){
         return
     }
 
-    if(passwordMatch){                          //if password match hua toh yeh niche ka kaam hoga warna else return kr dega                            //if uses is there ..then generate the jwt token
+    if(passwordMatch){                    //if password match hua toh yeh niche ka kaam hoga warna else return kr dega                            //if uses is there ..then generate the jwt token
         const token = jwt.sign({
-            id: user._id.toString()                      //sare users ka ek id hoga User collection mai jo sabke liye alg hoga ..isliye is barr hmlog user._id ko sign krenge aur token generate idhar se krwaynge...aur isko string mein convert kr rhe hai..kyuki id mongoDb mein object ID hota hai 
+            id: user._id.toString()       //sare users ka ek id hoga User collection mai jo sabke liye alg hoga ..isliye is barr hmlog user._id ko sign krenge aur token generate idhar se krwaynge...aur isko string mein convert kr rhe hai..kyuki id mongoDb mein object ID hota hai 
         }, JWT_SECRET);
         res.json({
             token: token

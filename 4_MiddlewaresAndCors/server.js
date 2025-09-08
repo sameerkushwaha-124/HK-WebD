@@ -60,7 +60,7 @@ function kidneyMiddleware(req, res, next){
     const kidneyId = parseInt(req.query.kidneyId); // if we do not parse then it is in string.
 
     if (kidneyId != 1 && kidneyId != 2) {
-        return rres.json({ "msg": "Something is wrong with kidneyId" });
+        return res.json({ "msg": "Something is wrong with kidneyId" });
     }
     next();
 }
@@ -82,7 +82,7 @@ app.listen(4000);
 
 // -------------------------------------------------------------------------------------------------------------------------
 
-//rate limiting
+//rate limiting : how many requests are coming to the server.
 
 let numberOfRequests = 0;
 
@@ -112,7 +112,7 @@ app.listen(4000);
 
 numberOfRequests = 0;
 
-function calculateRequest(req, res, next){     // very popular middleware to find the total load on the server.
+function calculateRequest(req, res, next){  // very popular middleware to find the total load on the server.
     numberOfRequests++;
     console.log(numberOfRequests);
     next(); // if we remove request will hunck...

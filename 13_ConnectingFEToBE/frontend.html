@@ -7,7 +7,7 @@
   </head>
   <body>
     <script>
-// --------------------------------------------------------------------------------------------------------
+// -------------------------promise syntex-------------------------------------------------------------------------------
 
       function findSum() {
         const a = document.getElementById("box1").value;
@@ -25,7 +25,7 @@
         });
       }
 
-// --------------------------------------------------------------------------------------------------------
+// ---------------------async await syntex--------------------------------------------------------------------------------------
 
       async function findSum2() {
         const a = document.getElementById("box1").value;
@@ -43,13 +43,14 @@
 
     let timeOut = null;
     function debouncedPopulate(){
-        clearTimeout(timeout);
+        clearTimeout(timeOut);
         timeOut = setTimeout(function(){
             findSum3();
         }, 1000);
     }
     async function findSum3() {
-        // debouncing throtlling
+        // debouncing throtlling : means to limit the number of api calls
+        // here we are limiting the api calls to 1 call per second
         const a = document.getElementById("box1").value;
         const b = document.getElementById("box2").value;
         const response = await fetch(`http://localhost:5000/output/?a=${a}&b=${b}`);

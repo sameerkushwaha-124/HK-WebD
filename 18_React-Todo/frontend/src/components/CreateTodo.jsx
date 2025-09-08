@@ -82,7 +82,7 @@ function CreateTodo() {
   }
 
   function onChangeDescription(event) {
-    setDescription(event.target.value);
+    setDescription(event.target.value); // means something like cosnt description = document.getElementById("description").value;
   }
 
   return (

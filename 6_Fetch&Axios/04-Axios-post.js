@@ -25,7 +25,7 @@ async function main(){
                 "authorization": "Bearer 123"
             },
         data:{
-        username:"ABC"
+          username:"ABC"
         }
     }
 );

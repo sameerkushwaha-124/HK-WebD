@@ -26,7 +26,7 @@ app.post("/signin", (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    let foundUser = null;                               //isko intialize krwa diye null
+    let foundUser = null;                  //isko intialize krwa diye null
 
     for (let i = 0; i < users.length; i++) {            //yeh check kr rha if woh username or passwords phle se exist toh nahi krta 
         if(users[i].username == username && users[i].password == password){
@@ -34,8 +34,8 @@ app.post("/signin", (req, res) => {
         }
     }
     if(foundUser){
-        const token = jwt.sign({                        //convert their username to jwt by using the .sign
-            username: username,                          //idhar jisko convert krna tha woh add krenge like meko username ko encode krna tha toh isliye i had added only username 
+        const token = jwt.sign({                     // convert their username to jwt by using the .sign
+            username: username,                      // idhar jisko convert krna tha woh add krenge like meko username ko encode krna tha toh isliye i had added only username 
             expiresAt : new Date().getTime() + 3600
         }, JWT_SECRET);
 
@@ -51,11 +51,12 @@ app.post("/signin", (req, res) => {
     }    
 });
 
+
 app.get("/me", function(req,res){  //Created an authenticated EP which  returns the user their information only if they send their token
     
     const token = req.headers.token       //Now it will give out the JWT
 
-    const decoded = jwt.verify(token, JWT_SECRET);      //This will convert the jwt to username and verify it using the .verify and after verifying it will return the json object jispe username hoga 
+    const decoded = jwt.verify(token, JWT_SECRET);      //This will convert the jwt to username and verify it using the .verify and after verifying it will return the json object jisme username hoga 
     const username = decoded.username;
 
     let foundUser = null;

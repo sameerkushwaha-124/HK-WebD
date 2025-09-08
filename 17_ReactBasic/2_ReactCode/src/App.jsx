@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 // any time parents render it's child also get rerender as well irespective of child get the same state variable.
+//  and this syntex is more cleaner and easy to read
 function App() {
   const [count, setCount] = useState(0)
 

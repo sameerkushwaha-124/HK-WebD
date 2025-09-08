@@ -48,7 +48,7 @@ app.get("/", function (req, res) {
 
 
 
-// for post req data we have to send data in body from the frontend..
+// for post req data we have to send data in body from the frontend..(using PostMan)
 app.post("/", function (req, res) {
   const isHealthy = req.body.isHealthy;
   users[0].kidneys.push({

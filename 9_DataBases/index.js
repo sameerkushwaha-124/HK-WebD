@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = "MaiNahiBataunga"
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb+srv://sameerkushwaha2003_db_user:ZQvADPm1kaKzNBuj@cluster0.1bh1b9g.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")                 //.net/DATABASE_Name - idhar agar koi new database k name add krenge toh woh create kr dega aur existing mein chahiye toh uska name add kr do 
+mongoose.connect("mongodb+srv://sameerkushwaha2003_db_user:ZQvADPm1kaKzNBuj@cluster0.1bh1b9g.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")          //.net/DATABASE_Name - idhar agar koi new database k name add krenge toh woh create kr dega aur existing mein chahiye toh uska name add kr do 
 
 const app = express()
 
@@ -31,15 +31,15 @@ app.post("/signin", async function(req, res){
     const email = req.body.email;
     const password = req.body.password;
 
-    const user = await UserModel.findOne({              //userModel se search krega ki yeh username & password...and usko user variable pe store krega and isko bhi await krwana pdega ..kyuki all database call had to be awaited 
+    const user = await UserModel.findOne({     //userModel se search krega ki yeh username & password...and usko user variable pe store krega and isko bhi await krwana pdega ..kyuki all database call had to be awaited 
         email: email,
-        password: password
-    })
+        password: password        // ham yaha pe email aur password dono se match kar rahe hain
+    })                           
 
-    if(user){                                           //if uses is there ..then generate the jwt token
+    if(user){                                          //if uses is there ..then generate the jwt token
         const token = jwt.sign({
-            id: user._id.toString()                      //sare users ka ek id hoga User collection mai jo sabke liye alg hoga ..isliye is barr hmlog user._id ko sign krenge aur token generate idhar se krwaynge...aur isko string mein convert kr rhe hai..kyuki id mongoDb mein object ID hota hai 
-        }, JWT_SECRET);
+            id: user._id.toString() // toString() because _id is ObjectId type     
+        }, JWT_SECRET);             //sare users ka ek id hoga User collection mai jo sabke liye alg hoga ..isliye is barr hmlog user._id ko sign krenge aur token generate idhar se krwaynge...aur isko string mein convert kr rhe hai..kyuki id mongoDb mein object ID hota hai 
         res.json({
             token: token
         });
@@ -70,11 +70,11 @@ app.get("/todos", auth, async function(req, res){           //yeh kaunsa todo ki
     const userId = req.userId;                              //middleware ke pass se jo req.userId jispe decodedData ka id hai woh idhr pass on hua 
     
     const todos = await TodoModel.find({                    //userId se woh todos ko search kr lega for this specific id provided to it
-        userId
+        userId : userId
     })
     
     res.json({
-        todo                                                //todos jo milnge woh output pe milenge 
+        todos                                              //todos jo milnge woh output pe milenge 
     })
 
 });
@@ -85,7 +85,7 @@ function auth(req, res, next){                              //same auth fucntion
     const decodedData = jwt.verify(token, JWT_SECRET)
 
     if(decodedData){
-        req.userId = decodedData.id;                         //User Id ko decodedData se le rhe hia idhar 
+        req.userId = decodedData.id;   // User Id ko decodedData se le rhe hia idhar aur phir 
         next();
     }
     else{

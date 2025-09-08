@@ -1,5 +1,5 @@
 Notes: 
-When apko malum hai ki apke user JSON data input dene wle hai then you have to parse the JSON data
+Jab apko malum hai ki apke user JSON data input dene wle hai then you have to parse the JSON data
 This is done using - 
         i. app.use(express.json())      -- Yeh external middleware hai
         ii. body-parser                 -- Yeh library hai
@@ -11,7 +11,11 @@ This is done using -
 
 Usage: Example-
 - Suppose we have created a post route instead of get aur uspe hmlg ko add krna hai two number so we cant provide the input in the url 
-- So here solution is hmlog postman mein jyenge udhar se body mein json data add krenge ecause we all know https request hmlog jab bhi server mein bhejte hai toh we send some meta data in that too.. so hm input ispe bhej sakte hai 
+- So here solution is hmlog postman mein jyenge udhar se body mein json data add krenge ecause we all know https request hmlog jab bhi
+- server mein bhejte hai toh we send some meta data in that too.. so hm input ispe bhej sakte hai 
 - But problem yeh ayega ki json data ko parse nhi kr pyega jisse error ayega 
 - So for this external middleware is used - app.use(express.json()) 
 - Yeh express.json() json data ko parse krne pe help krega and phir we will not get any error.
+
+
+// after parshing we can access the data using req.body.

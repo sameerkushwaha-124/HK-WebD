@@ -1,5 +1,5 @@
 /** Map
-*   give an array , given back a new arra in which every value if multiplied
+*   give an array , given back a new array in which every value is multiplied
 *   every value by 2
 */
 
@@ -29,8 +29,8 @@ console.log(ans);
  *  other way
  */
 
-const ans1 = input.map(function(i){
-    return i * 2;
+const ans1 = input.map(function(i){ // no need to push in new array because map creates a new array
+    return i * 2;                   // that will store to the ans1 variable.
 }) 
 console.log(ans1);
 
@@ -74,10 +74,10 @@ console.log(ans2);
 
 // or
 
-const ans3 =  arr.filter(function (n){
-    if(n % 2 == 0){
+const ans3 =  arr.filter(function (n){ // filter will create a new array which is   
+    if(n % 2 == 0){       // going to filled by the values for which the callback fn returns true
         return true;
-    }
+    }  
     return false;
 });
 console.log(ans3);

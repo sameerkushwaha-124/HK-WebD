@@ -4,7 +4,7 @@ function sum (a, b){
     return a + b;
 }
 
-const sum = (a, b)=>{
+const sum = (a, b)=>{  // This is an arrow function.
     return a + b;
 }
 
@@ -14,7 +14,7 @@ app.get('/', (req, res)=>{
 })
 
 app.get('/', function(req, res){
-
+    
 })
 
 

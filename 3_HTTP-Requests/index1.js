@@ -15,7 +15,7 @@ const express = require("express");
 const app = express();
 
 app.get("/sum", function(req, res) {
-    const a = parseInt(req.query.a)     //pareInt is done because hm input string ke form mei le rhe hai toh data stype string hoga toh 1+2 = 12 honjyega isliye int ban jaye isliye parseInt use kr rhe jisse 1+2=3 hoga na ki 12
+    const a = parseInt(req.query.a) // pareInt is done because  input string ke form mei le rhe hai toh data type string hoga toh 1+2 = 12 honjyega isliye int ban jaye isliye parseInt use kr rhe jisse 1+2=3 hoga na ki 12
     const b = parseInt(req.query.b)
     res.json({
         ans: a+b

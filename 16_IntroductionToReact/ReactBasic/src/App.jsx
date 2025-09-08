@@ -11,12 +11,13 @@ function App() {
     <>
       
         <button onClick={function (){
-          setCount((count) => count + 1)
-          }
+          setCount(function(count) { // if you are using this syntax then return is must if you                            
+               return count + 1      // do not return which mean you are setting function 
+          })                         // definition to count. which is not correct.
+        }                          
         }>
           count is {count}
         </button>
-        
     </>
   )
 }

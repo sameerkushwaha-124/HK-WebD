@@ -18,5 +18,5 @@ main();
 /*
 Notes:
 - Axios has more cleaner syntax comapred to fetch 
-- In axios we provide what kind od request we want like the get, post 
+- In axios we provide what kind of request we want like the get, post 
 */

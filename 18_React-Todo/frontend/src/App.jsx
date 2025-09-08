@@ -16,7 +16,8 @@ function App() {
   fetch('http://localhost:3000/todos', {method : "GET"})   // each time when you fetch calls and it changes 
   .then(async function (res){           // the value todos through out setTodo
     const jsonData = await res.json(); // and we know whenever the state changes components
-    setTodos(jsonData.todos);         // get  re-render. so the solution is useEffect Hook.
+    setTodos(jsonData.todos);         // get  re-render. so the solution to avoid infinite
+                                       // re-render  is useEffect Hook.
   })
 
 

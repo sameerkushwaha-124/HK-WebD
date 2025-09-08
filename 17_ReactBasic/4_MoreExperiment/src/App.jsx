@@ -4,6 +4,8 @@ function App(props) { // always object Even if you pass only one prop or no prop
 
   const {a, b} = JSON.stringify(props); // incorrect debuggin because it will convert it to string so destructuring will not followed. 
 
+  // right ways is const {a, b} = props;
+
   return (
     <>
 
@@ -29,6 +31,12 @@ export default App
 // But let's break it down:
 
 const obj = { name: "Alice", age: 25 };
+const json = {
+  'name' : 'Alice'
+}
+console.log(json.name); // 👉 'Alice'
+console.log(JSON.stringify(json)); // 👉 '{"name":"Alice"}'
+
 const str = JSON.stringify(obj);
 console.log(str); // 👉 '{"name":"Alice","age":25}'
 
