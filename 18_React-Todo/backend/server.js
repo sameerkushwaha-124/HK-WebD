@@ -6,7 +6,7 @@ const cors = require('cors');
 
 
 app.use(express.json());  // it will parse upcoming data to object (json object). we generally use middleware based on content type. basically app.use(express.json()) check header through it knows that data is json or not.
-app.use(cors());
+app.use(cors());         
 
 
 // body - > title desc

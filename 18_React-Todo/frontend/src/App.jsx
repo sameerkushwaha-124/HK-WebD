@@ -4,9 +4,8 @@ import Todos from './components/Todos';
 
 /**
  * You can not send req to backend unless backend allows to send request from the frontend.
- * you will get cors error 
+ * you will get cors error :
  */
-
 
 
 

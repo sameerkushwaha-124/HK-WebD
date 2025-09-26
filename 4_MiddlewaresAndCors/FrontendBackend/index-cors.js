@@ -3,8 +3,8 @@ const cors = require("cors")
 
 const app = express();
 
-app.use(express.json())
-app.use(cors())
+app.use(express.json()) 
+app.use(cors()) // it will allow all frontend to send the request no restriction
 
 app.post("/sum", function  sumHandler(req, res) {       
 
@@ -16,7 +16,7 @@ app.post("/sum", function  sumHandler(req, res) {
     });
 });
 
-app.listen(3001)
+app.listen(3001);
 
 /*
 Notes:

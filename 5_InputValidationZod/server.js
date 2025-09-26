@@ -35,12 +35,12 @@ app.listen(4000);
 */
 
 // ---------------------------------------------------------------------------------------
-// for input validation we can use zod
+// for input validation we can use zod.
 const express = require('express');
 const app = express();
 const  z  = require('zod');
 
-// Schema expects "kidneys" as an array of numbers
+// Schema expects "kidneys" as an array of numbers.
 // const schema = z.array(z.number());
 
 // or for condition at a time....

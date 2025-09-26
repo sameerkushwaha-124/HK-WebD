@@ -4,7 +4,7 @@ const axios = require("axios");
 //POST: // if we want to make a post request using fetch("link", {method, body, headers})
 async function main(){
     const response = await fetch("LINK",
-        {
+    {
         method:"POST",
         body : {
             username:"ABC",
@@ -22,7 +22,8 @@ async function main(){
 
 // POST : IN aXIOS : axios.post("link", {data}, {headers})
 async function main(){
-    const response = await axios.post("LINK",{
+    const response = await axios.post("LINK",
+    {
         username:"ABC",
         password:"12345678"
     },
@@ -30,7 +31,8 @@ async function main(){
         headers:{
             "authorization": "Bearer 123"
         },
-    });
+    }
+);
     console.log(response.data.todos.length);
 }
 

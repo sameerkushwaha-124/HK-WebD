@@ -13,7 +13,7 @@ app.get('/', function(req, res){
 })
 
 app.get('/route-handler', function(req, res){
-    //  headers, body, querry parameters
+    //  headers, body, querry parameters, params
     // do some logic
     res.json({
         name : "Sameer",

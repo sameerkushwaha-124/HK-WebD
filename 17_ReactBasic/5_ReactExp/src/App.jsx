@@ -13,7 +13,6 @@ function App() {
   return (
     <>
         <button onClick={onClickHandler}> count {count}</button>
-      
     </>
   )
 }

@@ -20,7 +20,6 @@ app.get("/sum/:a/:b", function(req, res) {          //dynamic parameters - yeh c
     res.json({
         ans: a+b
     })
-
 });
 
 app.get("/multiply/:a/:b", function(req, res) {
@@ -29,7 +28,6 @@ app.get("/multiply/:a/:b", function(req, res) {
     res.json({
         ans: a*b
     })
-    
 });
 
 app.get("/divide/:a/:b", function(req, res) {

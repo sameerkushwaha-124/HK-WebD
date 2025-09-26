@@ -1,12 +1,12 @@
 Notes: 
 Jab apko malum hai ki apke user JSON data input dene wle hai then you have to parse the JSON data
 This is done using - 
-        i. app.use(express.json())      -- Yeh external middleware hai
-        ii. body-parser                 -- Yeh library hai
+        i. app.use(express.json())    -- Yeh express ka middleware hai
+        ii. body-parser               -- Yeh library hai
                 Syntax - 
                     const parser = require("body-parser")
                     app.use(parser.json())
-         Note - Dono ka kaam ek hi hai.... express.json under the hood yeh body-parser library ko hi use krta
+Note - Dono ka kaam ek hi hai.... express.json under the hood yeh body-parser library ko hi use krta
 
 
 Usage: Example-

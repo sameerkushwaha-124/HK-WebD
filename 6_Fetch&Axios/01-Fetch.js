@@ -1,12 +1,12 @@
 // Here fetch is written using the .then syntax
-// function main(){
-//     fetch("https://sum-server.100xdevs.com/todos")
-//         .then(async(response) =>{
-//             const jsonData = await response.json();
-//             console.log(jsonData.todos.length)
-//             await response.text()
-//         })
-// }
+function main(){
+    fetch("https://sum-server.100xdevs.com/todos")
+        .then(async(response) =>{
+            const jsonData = await response.json();
+            console.log(jsonData.todos.length)
+            await response.text()
+        })
+}
 
 // Just a cleaner syntax of the above using async wait -
 async function main(){

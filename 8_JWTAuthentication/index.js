@@ -26,7 +26,7 @@ app.post("/signin", (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    let foundUser = null;                  //isko intialize krwa diye null
+    let foundUser = null;                  // isko intialize krwa diye null
 
     for (let i = 0; i < users.length; i++) {            //yeh check kr rha if woh username or passwords phle se exist toh nahi krta 
         if(users[i].username == username && users[i].password == password){
